@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interior Design Studio by Dina Trk</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header,
+    footer {
+      background-color: #B4563C;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffddc1;
+    }
+
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: white;
+      color: #B4563C;
+      border: none;
+      padding: 5px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .language-switcher:hover {
+      background-color: #f0f0f0;
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Services and Contact background */
+    #services,
+    #contact {
+      background-color: #B4563C;
+      color: white;
+    }
+
+    /* Links in Services and Contact */
+    #services a,
+    #contact a {
+      color: #ffddc1;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    #services a:hover,
+    #contact a:hover {
+      color: white;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #B4563C;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #8d3e2c;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .gallery img {
+      max-width: 180px;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Hero Section styles with full height */
+    #hero {
+      height: 90vh;
+      background-image: url('hero-placeholder.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      position: relative;
+      text-align: center;
+      padding: 10;
+
+
+    }
+
+    /* Overlay for better text visibility */
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    #hero .btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    #hero h2,
+    #hero p {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><strong>Interior Design Studio</strong></h1>
+    <p><em>by Dina Trk</em></p>
+    <nav>
+      <a href="#hero" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="#services" data-en="Services" data-fr="Services">Services</a>
+      <a href="#portfolio" data-en="Portfolio" data-fr="Portfolio">Portfolio</a>
+      <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+    </nav>
+    <button class="language-switcher" onclick="switchLanguage()">FR</button>
+  </header>
+
+  <section id="hero">
+    <h2 data-en="Welcome to Interior Design Studio by Dina Trk" data-fr="Bienvenue à Interior Design Studio par Dina Trk"></h2>
+    <p data-en="Where creativity meets functionality. We specialize in transforming everyday spaces into beautiful, practical environments tailored to your lifestyle and vision. Whether you're looking to refresh a single room, design a new home, or renovate a commercial space,"
+      data-fr="Où la créativité rencontre la fonctionnalité. Nous transformons les espaces quotidiens en environnements pratiques et esthétiques adaptés à votre style de vie et à votre vision. Que vous souhaitiez relooker une pièce, concevoir une nouvelle maison ou rénover un espace commercial,"></p>
+    <a href="https://wa.me/21620612608" target="_blank" class="btn" data-en="Request a Quote" data-fr="Demander un devis">Request a Quote</a>
+  </section>
+
+  <section id="about">
+    <h2 data-en="About Me" data-fr="À propos de moi">About Me</h2>
+    <p data-en="I'm Dina Turki, an interior architect and 3D designer with a passion for creating stylish, functional spaces that reflect each client’s personality and needs. I offer complete interior design services , from space planning and concept development to 3D visualization and material selection , for both residential and commercial projects."
+      data-fr="Je suis Dina Turki, architecte d'intérieur et designer 3D passionnée par la création d'espaces élégants et fonctionnels, reflétant la personnalité et les besoins de chaque client. J'offre un service complet de design intérieur, de l'aménagement de l'espace à la visualisation 3D, pour des projets résidentiels et commerciaux.">
+      I'm Dina Turki, an interior architect and 3D designer with a passion for creating stylish, functional spaces that reflect each client’s personality and needs. I offer complete interior design services , from space planning and concept development to 3D visualization and material selection , for both residential and commercial projects.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2 data-en="Services" data-fr="Services">Services</h2>
+    <ul style="list-style: none; padding-left: 0; font-weight: bold;">
+      <li>Space Planning</li>
+      <li>2D Plan</li>
+      <li>3D Modeling</li>
+      <li><a href="#contact" style="color:#ffddc1;">Get a Devis</a></li>
+    </ul>
+  </section>
+
+  <section id="portfolio">
+    <h2 data-en="Portfolio" data-fr="Portfolio">Portfolio</h2>
+    <div class="gallery">
+      <img src="project1.jpg" alt="Project 1" />
+      <img src="project2.jpg" alt="Project 2" />
+      <img src="project3.jpg" alt="Project 3" />
+      <img src="project4.jpg" alt="Project 4" />
+      <img src="project5.jpg" alt="Project 5" />
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 data-en="Contact Me" data-fr="Contactez-moi">Contact Me</h2>
+    <p>Email: <a href="mailto:dinaturki50@gmail.com">dinaturki50@gmail.com</a></p>
+    <p>WhatsApp: <a href="https://wa.me/qr/I5U3SRFFEPR7K1" target="_blank">Message me</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/dina.yo.9822" target="_blank">My Page</a></p>
+  </section>
+
+  <footer>
+    <p>© Interior Design Studio by Dina Trk</p>
+  </footer>
+
+  <script>
+    const switchLanguage = () => {
+      const button = document.querySelector('.language-switcher');
+      const isEnglish = button.textContent === 'FR';
+      button.textContent = isEnglish ? 'EN' : 'FR';
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = isEnglish ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+      });
+    };
+
+    // Show sections on scroll animation
+    const sections = document.querySelectorAll("section");
+    const showOnScroll = () => {
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (top < windowHeight - 100) {
+          section.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", showOnScroll);
+    window.addEventListener("load", showOnScroll);
+  </script>
+</body>
+
+</html>
+
+
