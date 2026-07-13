@@ -1,0 +1,76 @@
+#hero {
+
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+
+  animation: heroSlider 18s infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+  color: white;
+
+  position: relative;
+  overflow: hidden;
+
+}
+
+
+#hero::before {
+
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+}
+
+
+#hero h1,
+#hero h2,
+#hero p,
+#hero .btn {
+
+  position: relative;
+  z-index: 2;
+
+}
+
+
+
+@keyframes heroSlider {
+
+  0% {
+
+    background-image: url("images/living-room area.jpg");
+
+  }
+
+
+  33% {
+
+    background-image: url("images/bedroom.jpg");
+
+  }
+
+
+  66% {
+
+    background-image: url("images/kitchen.png");
+
+  }
+
+
+  100% {
+
+    background-image: url("images/living-room area.jpg");
+
+  }
+
+}
