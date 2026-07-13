@@ -1,265 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interior Design Studio by Dina Trk</title>
+
+  <title>Dina Turki — Design d'intérieur & Visualisation 3D</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
+
+    :root {
+      --beige: #F6F1EB;
+      --black: #111111;
+      --terracotta: #B56A4A;
+      --navy: #0B1F2A;
+      --taupe: #8A7A68;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #fff;
-      color: #333;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: 'Manrope', sans-serif;
+      background: var(--beige);
+      color: var(--black);
     }
 
-    header,
-    footer {
-      background-color: #B4563C;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      position: relative;
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
     }
 
-    nav {
-      margin-top: 10px;
+
+    header {
+      position: fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 60px;
+      background:rgba(246,241,235,0.85);
+      backdrop-filter:blur(10px);
     }
+
+
+    .logo {
+      font-size:24px;
+      letter-spacing:1px;
+    }
+
 
     nav a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      margin:0 15px;
+      text-decoration:none;
+      color:var(--black);
+      font-size:15px;
+      transition:0.3s;
     }
+
 
     nav a:hover {
-      color: #ffddc1;
+      color:var(--terracotta);
     }
+
 
     .language-switcher {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: white;
-      color: #B4563C;
-      border: none;
-      padding: 5px 10px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+
+      border:none;
+      background:var(--terracotta);
+      color:white;
+      padding:8px 16px;
+      border-radius:30px;
+      cursor:pointer;
+
     }
 
-    .language-switcher:hover {
-      background-color: #f0f0f0;
+
+    /* HERO */
+
+
+    #hero {
+
+      height:100vh;
+      background:
+      linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.45)
+      ),
+      url('hero-placeholder.jpg');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+
+      text-align:center;
+      color:white;
+
+      padding:20px;
+
     }
 
-    section {
-      padding: 40px 20px;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+
+    #hero h1 {
+
+      font-size:70px;
+      margin:0;
+
     }
 
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    #hero p {
+
+      max-width:700px;
+      font-size:20px;
+
     }
 
-    /* Services and Contact background */
-    #services,
-    #contact {
-      background-color: #B4563C;
-      color: white;
-    }
-
-    /* Links in Services and Contact */
-    #services a,
-    #contact a {
-      color: #ffddc1;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    #services a:hover,
-    #contact a:hover {
-      color: white;
-    }
 
     .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #B4563C;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      font-weight: bold;
+
+      display:inline-block;
+      margin-top:30px;
+      padding:15px 35px;
+
+      background:var(--terracotta);
+      color:white;
+
+      text-decoration:none;
+      border-radius:40px;
+
+      transition:0.3s;
+
     }
+
 
     .btn:hover {
-      background-color: #8d3e2c;
-    }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .gallery img {
-      max-width: 180px;
-      border-radius: 6px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Hero Section styles with full height */
-    #hero {
-      height: 90vh;
-      background-image: url('hero-placeholder.jpg'); /* Replace with your image */
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      position: relative;
-      text-align: center;
-      padding: 10;
-
+      background:var(--navy);
 
     }
 
-    /* Overlay for better text visibility */
-    #hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.45);
-      z-index: 1;
-    }
 
-    #hero .btn {
-      position: relative;
-      z-index: 2;
-    }
-
-    #hero h2,
-    #hero p {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      margin: 0 auto 20px auto;
-    }
   </style>
+
 </head>
 
+
 <body>
-  <header>
-    <h1><strong>Interior Design Studio</strong></h1>
-    <p><em>by Dina Trk</em></p>
-    <nav>
-      <a href="#hero" data-en="Home" data-fr="Accueil">Home</a>
-      <a href="#services" data-en="Services" data-fr="Services">Services</a>
-      <a href="#portfolio" data-en="Portfolio" data-fr="Portfolio">Portfolio</a>
-      <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
-    </nav>
-    <button class="language-switcher" onclick="switchLanguage()">FR</button>
-  </header>
 
-  <section id="hero">
-    <h2 data-en="Welcome to Interior Design Studio by Dina Trk" data-fr="Bienvenue à Interior Design Studio par Dina Trk"></h2>
-    <p data-en="Where creativity meets functionality. We specialize in transforming everyday spaces into beautiful, practical environments tailored to your lifestyle and vision. Whether you're looking to refresh a single room, design a new home, or renovate a commercial space,"
-      data-fr="Où la créativité rencontre la fonctionnalité. Nous transformons les espaces quotidiens en environnements pratiques et esthétiques adaptés à votre style de vie et à votre vision. Que vous souhaitiez relooker une pièce, concevoir une nouvelle maison ou rénover un espace commercial,"></p>
-    <a href="https://wa.me/21620612608" target="_blank" class="btn" data-en="Request a Quote" data-fr="Demander un devis">Request a Quote</a>
-  </section>
 
-  <section id="about">
-    <h2 data-en="About Me" data-fr="À propos de moi">About Me</h2>
-    <p data-en="I'm Dina Turki, an interior architect and 3D designer with a passion for creating stylish, functional spaces that reflect each client’s personality and needs. I offer complete interior design services , from space planning and concept development to 3D visualization and material selection , for both residential and commercial projects."
-      data-fr="Je suis Dina Turki, architecte d'intérieur et designer 3D passionnée par la création d'espaces élégants et fonctionnels, reflétant la personnalité et les besoins de chaque client. J'offre un service complet de design intérieur, de l'aménagement de l'espace à la visualisation 3D, pour des projets résidentiels et commerciaux.">
-      I'm Dina Turki, an interior architect and 3D designer with a passion for creating stylish, functional spaces that reflect each client’s personality and needs. I offer complete interior design services , from space planning and concept development to 3D visualization and material selection , for both residential and commercial projects.
-    </p>
-  </section>
+<header>
 
-  <section id="services">
-    <h2 data-en="Services" data-fr="Services">Services</h2>
-    <ul style="list-style: none; padding-left: 0; font-weight: bold;">
-      <li>Space Planning</li>
-      <li>2D Plan</li>
-      <li>3D Modeling</li>
-      <li><a href="#contact" style="color:#ffddc1;">Get a Devis</a></li>
-    </ul>
-  </section>
+<div class="logo">
+Dina Turki
+</div>
 
-  <section id="portfolio">
-    <h2 data-en="Portfolio" data-fr="Portfolio">Portfolio</h2>
-    <div class="gallery">
-      <img src="project1.jpg" alt="Project 1" />
-      <img src="project2.jpg" alt="Project 2" />
-      <img src="project3.jpg" alt="Project 3" />
-      <img src="project4.jpg" alt="Project 4" />
-      <img src="project5.jpg" alt="Project 5" />
-    </div>
-  </section>
 
-  <section id="contact">
-    <h2 data-en="Contact Me" data-fr="Contactez-moi">Contact Me</h2>
-    <p>Email: <a href="mailto:dinaturki50@gmail.com">dinaturki50@gmail.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/qr/I5U3SRFFEPR7K1" target="_blank">Message me</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/dina.yo.9822" target="_blank">My Page</a></p>
-  </section>
+<nav>
 
-  <footer>
-    <p>© Interior Design Studio by Dina Trk</p>
-  </footer>
+<a href="#hero" data-fr="Accueil" data-en="Home">Accueil</a>
 
-  <script>
-    const switchLanguage = () => {
-      const button = document.querySelector('.language-switcher');
-      const isEnglish = button.textContent === 'FR';
-      button.textContent = isEnglish ? 'EN' : 'FR';
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = isEnglish ? el.getAttribute('data-fr') : el.getAttribute('data-en');
-      });
-    };
+<a href="#about" data-fr="À propos" data-en="About">À propos</a>
 
-    // Show sections on scroll animation
-    const sections = document.querySelectorAll("section");
-    const showOnScroll = () => {
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (top < windowHeight - 100) {
-          section.classList.add("visible");
-        }
-      });
-    };
+<a href="#services" data-fr="Services" data-en="Services">Services</a>
 
-    window.addEventListener("scroll", showOnScroll);
-    window.addEventListener("load", showOnScroll);
-  </script>
-</body>
+<a href="#portfolio" data-fr="Projets" data-en="Projects">Projets</a>
 
-</html>
+<a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+
+</nav>
+
+
+<button class="language-switcher" onclick="switchLanguage()">
+EN
+</button>
+
+
+</header>
+
+
+
+<section id="hero">
+
+
+<h1>
+Dina Turki
+</h1>
+
+
+<h2>
+Design d'intérieur & Visualisation 3D
+</h2>
+
+
+<p data-fr="
+Je crée des espaces uniques où l'esthétique,
+la fonctionnalité et l'identité se rencontrent.
+"
+data-en="
+I create unique spaces where aesthetics,
+functionality and identity meet.
+">
+
+Je crée des espaces uniques où l'esthétique,
+la fonctionnalité et l'identité se rencontrent.
+
+</p>
+
+
+<a href="https://wa.me/21620612638"
+target="_blank"
+class="btn"
+data-fr="Demander un devis"
+data-en="Request a quote">
+
+Demander un devis
+
+</a>
+
+
+</section>
 
 
