@@ -1,6 +1,8 @@
+
+
 @keyframes heroSlider {
 
-  0% {
+  0%, 100% {
     background-image:
       linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
       url("living-room area.jpg");
@@ -17,11 +19,4 @@
       linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
       url("kitchen.png");
   }
-
-  100% {
-    background-image:
-      linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url("living-room area.jpg");
-  }
-
 }
